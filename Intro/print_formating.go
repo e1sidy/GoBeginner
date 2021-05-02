@@ -10,6 +10,7 @@ import (
 // %v specifies the general default format.
 // %c specifies ASCII character format.
 // %b specifies format for bit representation of number
+// %T print the data type of the variable
 
 func main() {
 	var c1 complex64 = 5 + 2i
@@ -31,5 +32,8 @@ func main() {
 	fmt.Printf("%d - %d - %d\n", ch1, ch2, ch3) // integer
 	fmt.Printf("%c - %c - %c\n", ch1, ch2, ch3) // character
 	fmt.Printf("%X - %X - %X\n", ch1, ch2, ch3) // UTF-8 bytes
-	fmt.Printf("%U - %U - %U", ch1, ch2, ch3)   // UTF-8 code point
+	fmt.Printf("%U - %U - %U\n", ch1, ch2, ch3) // UTF-8 code point
+
+	// Print the data type of the variables
+	fmt.Printf("The data type of variables are %T and %T\n", a, ch1)
 }
