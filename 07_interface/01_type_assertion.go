@@ -37,7 +37,7 @@ func main() {
 	if t, ok := areaIntf.(Circle); ok {
 		fmt.Printf("The type of areaIntf is %T\n", t)
 	} else {
-		fmt.Println("areaIntf is not of type implementing interface")
+		fmt.Println("areaIntf does not contain variable of type Circle")
 	}
 
 }
