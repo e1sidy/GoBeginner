@@ -39,11 +39,19 @@ type Square struct {
 	side float32
 }
 
+type Rectange struct {
+	length, width float32
+}
+
 func (this *Square) Area() float32 {
 	return this.side * this.side
 }
 
-func main() {
+func (this Rectange) Area() float32 {
+	return this.length * this.width
+}
+
+func example1() {
 	sq1 := new(Square)
 	sq1.side = 5
 	var areaIntf Shaper
@@ -54,5 +62,27 @@ func main() {
 	// areaIntf := Shaper(sq1)
 
 	fmt.Printf("The square has an area of %.2f\n", areaIntf.Area())
+}
 
+func example2() {
+	sq1 := &Square{5}
+	rec1 := Rectange{8, 9}
+
+	// If a struct method (which is in interface method) is defined over value
+	// One cannot use interface to refer to  struct varible initalized as a pointer
+	// Eg Rectange can not be used as pointer
+
+	shapes := []Shaper{sq1, rec1}
+	fmt.Println("Looping throught all the shapes")
+	for idx, val := range shapes {
+		fmt.Printf("The Area of Shape at index %d is %f\n", idx, val.Area())
+	}
+
+}
+
+func main() {
+	fmt.Println("Example 1")
+	example1()
+	fmt.Println("Example 2")
+	example2()
 }
