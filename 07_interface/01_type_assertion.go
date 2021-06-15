@@ -1,5 +1,9 @@
 package main
 
+// In general, we can test if varI contains at a certain moment a variable of type T with the type assertion test:
+// v := varI.(T) // unchecked type assertion
+// here we discuss about checked type assertion
+
 import (
 	"fmt"
 	"math"
