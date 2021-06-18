@@ -5,6 +5,11 @@ import (
 	"time"
 )
 
+// Number of threads used for running a go program is 1 by default
+// So even if you use multiple goroutines, it only achives concurency in the code
+// Set runtime.GOMAXPROCS = t, to use multiple threads
+// Generally number of goroutines > 1 + GOMAXPROCS > 1
+
 func main() {
 	fmt.Println("In main()")
 	go longWait()
@@ -21,7 +26,7 @@ func longWait() {
 }
 
 func shortWait() {
-	fmt.Println("Beginning of shortWait")
+	fmt.Println("Beginning of shortWait()")
 	time.Sleep(2 * 1e9)
 	fmt.Println("End of shortWait()")
 }
