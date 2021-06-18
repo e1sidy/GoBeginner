@@ -38,7 +38,7 @@ func main() {
 	interact(polarChan, cartesianChan)
 }
 
-func createSolver(in chan polar) chan cartesian {
+func createSolver(in <-chan polar) chan cartesian {
 	out := make(chan cartesian)
 	go func() {
 		for {
@@ -52,7 +52,7 @@ func createSolver(in chan polar) chan cartesian {
 	return out
 }
 
-func interact(out chan polar, in chan cartesian) {
+func interact(out chan<- polar, in <-chan cartesian) {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println(prompt)
 	for {
