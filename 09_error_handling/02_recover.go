@@ -7,6 +7,12 @@ package main
 // The panic causes the stack to unwind until a deferred recover() is found or the program terminates.
 // It is analogous to the catch block in the Java and .NET languages.
 
+/*
+Here are a couple of best practices which every writer of custom packages should apply:
+- Always recover from panic in your package: no explicit panic() should be allowed to cross a package boundary.
+- Return errors as error values to the callers of your package.
+*/
+
 import (
 	"fmt"
 )
