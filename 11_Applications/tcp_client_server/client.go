@@ -31,8 +31,6 @@ func main() {
 		input, _ := inputReader.ReadString('\n')
 		trimmedInput := strings.Trim(input, "\n")
 
-		fmt.Printf("trimmedInput:--%s--", trimmedInput)
-
 		if trimmedInput == "Q" {
 			return
 		}
